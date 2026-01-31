@@ -67,6 +67,9 @@ Route::group(['middleware' => 'admin'], function () {
 Route::group(['middleware' => 'teacher'], function () {
     Route::group(['prefix' => 'teacher'], function () {
         Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+        Route::group(['prefix' => 'subject'], function () {
+            Route::get('/list', [SubjectController::class, 'list']);            
+        });
     });
 });
 

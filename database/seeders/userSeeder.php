@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class userSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,31 +15,31 @@ class userSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Expert College',
-            'email' => 'admin@example.com',
+            'name' => 'Administrator',
+            'email' => 'admin@lincolnsc.com',
             'password' => Hash::make('password'),
-            'user_type' => "1"
+            'user_type' => "1" 
         ]);
 
         User::create([
             'name' => 'Aunty Jane',
-            'email' => 'teacher@example.com',
+            'email' => 'aunty.jane@lincolnsc.com',
             'password' => Hash::make('password'),
-            'user_type' => "2"
+            'user_type' => "2" 
         ]);
 
         User::create([
             'name' => 'Joshua Edwin',
-            'email' => 'student@example.com',
+            'email' => 'joshua.edwin@lincolnsc.com',
             'password' => Hash::make('password'),
-            'user_type' => "3"
+            'user_type' => "3" 
         ]);
 
         User::create([
-            'name' => 'Doctor Michael',
-            'email' => 'parent@example.com',
+            'name' => 'Michael Phelps',
+            'email' => 'michael.phelps@lincolnsc.com',
             'password' => Hash::make('password'),
-            'user_type' => "4"
+            'user_type' => "4" 
         ]);
     }
 }

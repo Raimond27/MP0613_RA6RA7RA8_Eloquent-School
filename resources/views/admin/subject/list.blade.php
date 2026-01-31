@@ -7,11 +7,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Class Lists</h1>
+                        <h1>Subject Lists</h1>
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
-                            <a href="{{ url('admin/class/add') }}" class="btn btn-primary"> Add new Class</a>
+                            <a href="{{ url('admin/subject/add') }}" class="btn btn-primary"> Add new Subject</a>
                         </div>
 
                     </div>
@@ -22,7 +22,7 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Search Class</h3>
+                        <h3 class="card-title">Search Subject</h3>
                     </div>
                     <form action="" method="get">
                         <div class="card-body">
@@ -54,7 +54,7 @@
                         @include('_message')
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title"><span class="font-weight-bold">Total Class Lists :</span>
+                                <h3 class="card-title"><span class="font-weight-bold">Total Subject Lists :</span>
                                     {{ $getRecord->total() }}
                                 </h3>
                             </div>
@@ -65,6 +65,8 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Class</th>
                                             <th>Status</th>
                                             <th>Created By</th>
                                             <th>Created Date</th>
@@ -74,9 +76,11 @@
                                     <tbody>
                                         <p class="d-none">{{ $i = 0 }}</p>
                                         @foreach ($getRecord as $value)
-                                            <tr>                                                
+                                            <tr>
                                                 <td>{{ $value->id }}</td>
                                                 <td>{{ $value->name }}</td>
+                                                <td>{{ $value->type }}</td>
+                                                <td>{{ $value->class_name }}</td>
                                                 <td>
                                                     @if ($value->status == 0)
                                                         Active
@@ -87,9 +91,9 @@
                                                 <td>{{ $value->created_by_name }}</td>
                                                 <td>{{ date('F j, Y | H:i A', strtotime($value->created_at)) }}</td>
                                                 <td>
-                                                    <a href="{{ url('admin/class/edit/' . $value->id) }}"
+                                                    <a href="{{ url('admin/subject/edit/' . $value->id) }}"
                                                         class="btn btn-primary"> Edit</a>
-                                                    <a href="{{ url('admin/class/delete/' . $value->id) }}"
+                                                    <a href="{{ url('admin/subject/delete/' . $value->id) }}"
                                                         class="btn btn-danger"> Delete</a>
                                                 </td>
                                             </tr>
@@ -98,17 +102,16 @@
                                     </tbody>
                                 </table>
 
-                                <div class="float-left p-10">
-                                    {{ $getRecord->links() }}
-                                </div>
+                                @if ($getRecord->total() > 0)
+                                    <div style="float: right;">
+                                        {!! $getRecord->links() !!}
+                                    </div>
+                                @endif
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <!-- /.card -->
                     </div>
-                    <!-- /.col -->
                 </div>
-
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->

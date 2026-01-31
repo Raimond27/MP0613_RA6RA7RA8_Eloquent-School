@@ -13,6 +13,7 @@ class ClassController extends Controller
     {
         $data['getRecord'] = ClassModel::getRecord();
         $data['header_title'] = "Class List";
+        // dd($data);
         return view('admin.class.list', $data);
     }
 

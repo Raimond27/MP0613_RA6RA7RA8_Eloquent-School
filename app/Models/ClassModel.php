@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Request;
+use Illuminate\Support\Facades\Request;
 
 class ClassModel extends Model
 {
@@ -25,8 +25,8 @@ class ClassModel extends Model
         }
 
         $return = $return->where('class.is_delete', '=', 0)
-            ->orderBy('class.id', 'desc')
-            ->paginate(20);
+            ->orderBy('class.id', 'asc')
+            ->paginate(10);
 
         return $return;
     }
