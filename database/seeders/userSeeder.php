@@ -14,31 +14,32 @@ class userSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create(
-            // [
-            //     'name' => 'Expert College',
-            //     'email' => 'admin@example.com',
-            //     'password' => Hash::make('password'),
-            //     'user_type' => "1"
-            // ],
-            // [
-            //     'name' => 'Aunty Jane',
-            //     'email' => 'teacher@example.com',
-            //     'password' => Hash::make('password'),
-            //     'user_type' => "2"
-            // ],
-            // [
-            //     'name' => 'Joshua Edwin',
-            //     'email' => 'student@example.com',
-            //     'password' => Hash::make('password'),
-            //     'user_type' => "3"
-            // ],
-            // [
-            //     'name' => 'Doctor Michael',
-            //     'email' => 'parent@example.com',
-            //     'password' => Hash::make('password'),
-            //     'user_type' => "4"
-            // ]
-        );
+        User::create([
+            'name' => 'Expert College',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password'),
+            'user_type' => "1"
+        ]);
+
+        User::create([
+            'name' => 'Aunty Jane',
+            'email' => 'teacher@example.com',
+            'password' => Hash::make('password'),
+            'user_type' => "2"
+        ]);
+
+        User::create([
+            'name' => 'Joshua Edwin',
+            'email' => 'student@example.com',
+            'password' => Hash::make('password'),
+            'user_type' => "3"
+        ]);
+
+        User::create([
+            'name' => 'Doctor Michael',
+            'email' => 'parent@example.com',
+            'password' => Hash::make('password'),
+            'user_type' => "4"
+        ]);
     }
 }
